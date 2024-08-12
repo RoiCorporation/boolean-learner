@@ -32,11 +32,6 @@ public class CalculatorPanel extends JPanel {
 	private JComboBox<String> _leftOperandComboBox;
 	private JLabel _resultLabel;
 
-	private static final int DEFAULT_VALUE_INDEX = -1;
-	private static final int LEFT_OPERAND_INDEX = 0;
-	private static final int RIGHT_OPERAND_INDEX = 2;
-	private static final int OPERATION_INDEX = 1;
-
 	public CalculatorPanel(Controller ctrl) {
 		this._ctrl = ctrl;
 		this.initGUI();
@@ -69,7 +64,7 @@ public class CalculatorPanel extends JPanel {
 
 		this._leftOperandComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CalculatorPanel.this._currentBooleanExpression[LEFT_OPERAND_INDEX] = CalculatorPanel.this._leftOperandModel
+				CalculatorPanel.this._currentBooleanExpression[Constants.LEFT_OPERAND_INDEX] = CalculatorPanel.this._leftOperandModel
 						.getSelectedItem().toString();
 				CalculatorPanel.this.checkBooleanExpression();
 			}
@@ -77,7 +72,7 @@ public class CalculatorPanel extends JPanel {
 
 		rightOperandComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CalculatorPanel.this._currentBooleanExpression[RIGHT_OPERAND_INDEX] = CalculatorPanel.this._rightOperandModel
+				CalculatorPanel.this._currentBooleanExpression[Constants.RIGHT_OPERAND_INDEX] = CalculatorPanel.this._rightOperandModel
 						.getSelectedItem().toString();
 				CalculatorPanel.this.checkBooleanExpression();
 			}
@@ -85,7 +80,7 @@ public class CalculatorPanel extends JPanel {
 
 		operationsComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CalculatorPanel.this._currentBooleanExpression[OPERATION_INDEX] = CalculatorPanel.this._operationModel
+				CalculatorPanel.this._currentBooleanExpression[Constants.OPERATION_INDEX] = CalculatorPanel.this._operationModel
 						.getSelectedItem().toString();
 				CalculatorPanel.this.checkBooleanExpression();
 			}
@@ -138,7 +133,7 @@ public class CalculatorPanel extends JPanel {
 		resultingComboBox.setMaximumSize(resultingComboBox.getPreferredSize());
 
 		// Gives the combobox a blank value by default
-		resultingComboBox.setSelectedIndex(DEFAULT_VALUE_INDEX);
+		resultingComboBox.setSelectedIndex(Constants.DEFAULT_VALUE_INDEX);
 
 		// Returns the configured combobox
 		return resultingComboBox;
@@ -154,7 +149,7 @@ public class CalculatorPanel extends JPanel {
 			i++;
 		}
 
-		if (this._currentBooleanExpression[OPERATION_INDEX] == Operation.NOT.toString()
+		if (this._currentBooleanExpression[Constants.OPERATION_INDEX] == Operation.NOT.toString()
 				&& numberOfInputs == this._currentBooleanExpression.length - 1) {
 			this._leftOperandComboBox.setVisible(false);
 			CalculatorPanel.this._ctrl.action(Events.CALCULATE_BOOLEAN_RESULT,
@@ -166,7 +161,7 @@ public class CalculatorPanel extends JPanel {
 	}
 
 	private void chekIfNotOperationSelected() {
-		if (this._currentBooleanExpression[OPERATION_INDEX] == Operation.NOT.toString())
+		if (this._currentBooleanExpression[Constants.OPERATION_INDEX] == Operation.NOT.toString())
 			this._leftOperandComboBox.setVisible(false);
 		else
 			this._leftOperandComboBox.setVisible(true);

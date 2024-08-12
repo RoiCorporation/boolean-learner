@@ -1,3 +1,4 @@
+package launcher;
 import control.Controller;
 import view.MainWindow;
 

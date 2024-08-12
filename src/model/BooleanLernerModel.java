@@ -7,23 +7,20 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import control.Controller;
+import view.Constants;
 
 public class BooleanLernerModel {
 
 	private Controller _ctrl;
-
-	private static final int LEFT_OPERAND_INDEX = 0;
-	private static final int RIGHT_OPERAND_INDEX = 2;
-	private static final int OPERATION_INDEX = 1;
 
 	public BooleanLernerModel(Controller ctrl) {
 		this._ctrl = ctrl;
 	}
 
 	public boolean calculateBooleanResult(String[] booleanExpression) {
-		boolean leftOperand = Boolean.valueOf(booleanExpression[LEFT_OPERAND_INDEX]);
-		boolean rightOperand = Boolean.valueOf(booleanExpression[RIGHT_OPERAND_INDEX]);
-		String operation = booleanExpression[OPERATION_INDEX];
+		boolean leftOperand = Boolean.valueOf(booleanExpression[Constants.LEFT_OPERAND_INDEX]);
+		boolean rightOperand = Boolean.valueOf(booleanExpression[Constants.RIGHT_OPERAND_INDEX]);
+		String operation = booleanExpression[Constants.OPERATION_INDEX];
 		boolean result;
 
 		switch (operation) {

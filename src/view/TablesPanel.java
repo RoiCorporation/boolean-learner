@@ -27,8 +27,6 @@ public class TablesPanel extends JPanel {
 	private DefaultComboBoxModel<String> _operationModel;
 	private JLabel _tableImageLabel;
 
-	private static final int DEFAULT_VALUE_INDEX = -1;
-
 	public TablesPanel(Controller ctrl) {
 		this._ctrl = ctrl;
 		this.initGUI();
@@ -90,7 +88,7 @@ public class TablesPanel extends JPanel {
 		resultingComboBox.setMaximumSize(resultingComboBox.getPreferredSize());
 
 		// Gives the combobox a blank value by default
-		resultingComboBox.setSelectedIndex(DEFAULT_VALUE_INDEX);
+		resultingComboBox.setSelectedIndex(Constants.DEFAULT_VALUE_INDEX);
 
 		// Returns the configured combobox
 		return resultingComboBox;
